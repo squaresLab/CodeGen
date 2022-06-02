@@ -3,7 +3,7 @@ conda activate codeGen_env
 conda config --add channels conda-forge
 conda config --add channels pytorch
 
-conda install pytorch torchvision torchaudio cudatoolkit=11.0 six scikit-learn stringcase transformers ply slimit astunparse submitit
+mamba install pytorch torchvision torchaudio cudatoolkit=11.0 six scikit-learn stringcase transformers ply slimit astunparse submitit
 pip install cython
 cd codegen_sources/model/tools
 git clone https://github.com/glample/fastBPE.git
@@ -18,6 +18,7 @@ cd tree-sitter
 git clone https://github.com/tree-sitter/tree-sitter-cpp.git
 git clone https://github.com/tree-sitter/tree-sitter-java.git
 git clone https://github.com/tree-sitter/tree-sitter-python.git
+git clone https://github.com/stadelmanma/tree-sitter-fortran.git
 cd ..
 
 cd codegen_sources/test_generation/
