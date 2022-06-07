@@ -30,7 +30,10 @@ from codegen_sources.preprocessing.lang_processors.cpp_processor import CppProce
 from codegen_sources.preprocessing.lang_processors.java_processor import JavaProcessor
 from codegen_sources.preprocessing.lang_processors.python_processor import (
     PythonProcessor,
+
 )
+from codegen_sources.preprocessing.lang_processors.fortran_processor import FortranProcessor
+from codegen_sources.preprocessing.lang_processors.rust_processor import RustProcessor
 from codegen_sources.preprocessing.lang_processors.lang_processor import LangProcessor
 from codegen_sources.preprocessing.lang_processors.python_processor import (
     PythonProcessor,

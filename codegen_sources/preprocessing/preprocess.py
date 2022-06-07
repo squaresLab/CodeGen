@@ -129,7 +129,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--langs",
         nargs="+",
-        default=["python", "java", "cpp"],
+        default=["python", "java", "cpp", "fortran", "rust"],
         help="list of languages to run on",
     )
     parser.add_argument(

@@ -18,6 +18,7 @@ cd tree-sitter
 git clone https://github.com/tree-sitter/tree-sitter-cpp.git
 git clone https://github.com/tree-sitter/tree-sitter-java.git
 git clone https://github.com/tree-sitter/tree-sitter-python.git
+git clone https://github.com/tree-sitter/tree-sitter-rust.git
 git clone https://github.com/stadelmanma/tree-sitter-fortran.git
 cd ..
 

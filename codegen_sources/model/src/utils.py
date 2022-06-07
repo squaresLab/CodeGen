@@ -31,6 +31,8 @@ TREE_SITTER_ROOT = Path(__file__).parents[3].joinpath("tree-sitter")
 import codegen_sources.preprocessing.lang_processors.cpp_processor
 import codegen_sources.preprocessing.lang_processors.java_processor
 import codegen_sources.preprocessing.lang_processors.python_processor
+import codegen_sources.preprocessing.lang_processors.fortran_processor
+import codegen_sources.preprocessing.lang_processors.rust_processor
 from codegen_sources.test_generation.test_runners.evosuite_test_runners import (
     SUPPORTED_LANGUAGES_FOR_TESTS,
 )

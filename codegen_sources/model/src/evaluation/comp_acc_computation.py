@@ -26,6 +26,8 @@ TREE_SITTER_ROOT = REPO_ROOT.joinpath("tree-sitter")
 import codegen_sources.preprocessing.lang_processors.cpp_processor
 import codegen_sources.preprocessing.lang_processors.java_processor
 import codegen_sources.preprocessing.lang_processors.python_processor
+import codegen_sources.preprocessing.lang_processors.fortran_processor
+import codegen_sources.preprocessing.lang_processors.rust_processor
 from codegen_sources.preprocessing.lang_processors.lang_processor import LangProcessor
 
 from codegen_sources.test_generation.test_runners.cpp_test_runner import CppTestRunner
@@ -39,9 +41,9 @@ from codegen_sources.test_generation.evosuite_tests_translators.evosuite_to_cpp 
     EvosuiteToCpp,
 )
 
-EXT = {"python": "py", "java": "java", "cpp": "cpp"}
+EXT = {"python": "py", "java": "java", "cpp": "cpp", "fortran": "f", "rust": "rs"}
 
-TOFILL = {"python": "#TOFILL", "java": "//TOFILL", "cpp": "//TOFILL"}
+TOFILL = {"python": "#TOFILL", "java": "//TOFILL", "cpp": "//TOFILL", "fortran": "C TOFILL", "rust": "//TOFILL"}
 
 primitive_types = {"short", "int", "long", "float", "double", "boolean", "char"}
 
@@ -115,6 +117,32 @@ def run_cpp_program(script_path, i):
         executable="/bin/bash",
     )
     res = eval_state(proc, f"{name}_cpp")
+    return res, i
+
+def run_fortran_program(script_path, i):
+    folder = os.path.dirname(script_path)
+    name = os.path.basename(script_path).split(".")[0]
+    proc = subprocess.Popen(
+        f"{limit_virtual_memory(MAX_VIRTUAL_MEMORY)}; cd {folder} && gfortran {name}.f -o {name}_fortran && ./{name}_fortran",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=True,
+        executable="/bin/bash",
+    )
+    res = eval_state(proc, f"{name}_fortran")
+    return res, i
+
+def run_rust_program(script_path, i):
+    folder = os.path.dirname(script_path)
+    name = os.path.basename(script_path).split(".")[0]
+    proc = subprocess.Popen(
+        f"{limit_virtual_memory(MAX_VIRTUAL_MEMORY)}; cd {folder} && rustc {name}.f -o {name}_rust && ./{name}_rust",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        shell=True,
+        executable="/bin/bash",
+    )
+    res = eval_state(proc, f"{name}_rust")
     return res, i
 
 

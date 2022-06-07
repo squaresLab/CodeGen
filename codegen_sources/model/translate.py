@@ -21,6 +21,8 @@ from codegen_sources.preprocessing.lang_processors.java_processor import JavaPro
 from codegen_sources.preprocessing.lang_processors.python_processor import (
     PythonProcessor,
 )
+from codegen_sources.preprocessing.lang_processors.fortran_processor import FortranProcessor
+from codegen_sources.preprocessing.lang_processors.rust_processor import RustProcessor
 from codegen_sources.preprocessing.lang_processors.lang_processor import LangProcessor
 from codegen_sources.preprocessing.bpe_modes.fast_bpe_mode import FastBPEMode
 from codegen_sources.preprocessing.bpe_modes.roberta_bpe_mode import RobertaBPEMode
@@ -36,7 +38,7 @@ from codegen_sources.model.src.utils import restore_roberta_segmentation_sentenc
 from codegen_sources.model.src.model import build_model
 from codegen_sources.model.src.utils import AttrDict, TREE_SITTER_ROOT
 
-SUPPORTED_LANGUAGES = ["cpp", "java", "python"]
+SUPPORTED_LANGUAGES = ["cpp", "java", "python", "fortran", "rust"]
 
 logger = create_logger(None, 0)
 
