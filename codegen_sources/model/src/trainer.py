@@ -1074,6 +1074,8 @@ class Trainer(object):
         Next word prediction step (causal prediction).
         CLM objective.
         """
+        logger.info("")
+        logger.info("========== Causal prediction step ==========")
         assert lambda_coeff >= 0
         if lambda_coeff == 0:
             return
@@ -1118,6 +1120,8 @@ class Trainer(object):
         Masked word prediction step.
         MLM objective is lang2 is None, TLM objective otherwise.
         """
+        logger.info("")
+        logger.info("========== Masked word prediction step ==========")
         assert lambda_coeff >= 0
         if lambda_coeff == 0:
             return
@@ -1171,6 +1175,8 @@ class Trainer(object):
         Masked word prediction step.
         MLM objective is lang2 is None, TLM objective otherwise.
         """
+        logger.info("")
+        logger.info("========== Masked prediction step ==========")
         assert lambda_coeff >= 0
         if lambda_coeff == 0:
             return
@@ -1259,6 +1265,8 @@ class EncDecTrainer(Trainer):
         Machine translation step.
         Can also be used for denoising auto-encoding.
         """
+        logger.info("")
+        logger.info("========== Machine translation step ==========")
         assert lambda_coeff >= 0
         if lambda_coeff == 0:
             return
@@ -1488,6 +1496,8 @@ class EncDecTrainer(Trainer):
         """
         Training on self-trained examples using unit tests
         """
+        logger.info("")
+        logger.info("========== Self-training step ==========")
         assert lambda_coeff >= 0
         if lambda_coeff == 0:
             return
