@@ -1,0 +1,11 @@
+# Installed with the install_env.sh script
+/tree-sitter
+/apex
+/codegen_sources/model/tools/fastBPE
+/codegen_sources/test_generation/evosuite-1.1.0.jar
+
+# Python cache files
+*__pycache__
+
+# Emacs
+\#*\#
